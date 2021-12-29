@@ -209,6 +209,19 @@ class SHAKE256(HashAlgorithm, ExtendableOutputFunction):
     digest_size = utils.read_only_property("_digest_size")
 
 
+class SM3(HashAlgorithm):
+    name = "sm3"
+    digest_size = 16
+    block_size = 16
+
+class MD2(HashAlgorithm):
+    name = "md2"
+    digest_size = 16
+    block_size = 16
+class MD4(HashAlgorithm):
+    name = "md4"
+    digest_size = 16
+    block_size = 16
 class MD5(HashAlgorithm):
     name = "md5"
     digest_size = 16

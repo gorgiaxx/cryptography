@@ -82,6 +82,7 @@ class NameOID(object):
 
 
 class SignatureAlgorithmOID(object):
+    SM2_WITH_SM3 = ObjectIdentifier("1.2.156.10197.1.501")
     RSA_WITH_MD2 = ObjectIdentifier("1.2.840.113549.1.1.2")
     RSA_WITH_MD4 = ObjectIdentifier("1.2.840.113549.1.1.3")
     RSA_WITH_MD5 = ObjectIdentifier("1.2.840.113549.1.1.4")
@@ -111,6 +112,9 @@ class SignatureAlgorithmOID(object):
 _SIG_OIDS_TO_HASH: typing.Dict[
     ObjectIdentifier, typing.Optional[hashes.HashAlgorithm]
 ] = {
+    SignatureAlgorithmOID.SM2_WITH_SM3: hashes.SM3(),
+    SignatureAlgorithmOID.RSA_WITH_MD2: hashes.MD2(),
+    SignatureAlgorithmOID.RSA_WITH_MD4: hashes.MD4(),
     SignatureAlgorithmOID.RSA_WITH_MD5: hashes.MD5(),
     SignatureAlgorithmOID.RSA_WITH_SHA1: hashes.SHA1(),
     SignatureAlgorithmOID._RSA_WITH_SHA1: hashes.SHA1(),
@@ -195,6 +199,7 @@ _OID_NAMES = {
     NameOID.OGRN: "OGRN",
     NameOID.SNILS: "SNILS",
     NameOID.UNSTRUCTURED_NAME: "unstructuredName",
+    SignatureAlgorithmOID.SM2_WITH_SM3: "SM3-with-SM2",
     SignatureAlgorithmOID.RSA_WITH_MD2: "md2WithRSAEncryption",
     SignatureAlgorithmOID.RSA_WITH_MD4: "md4WithRSAEncryption",
     SignatureAlgorithmOID.RSA_WITH_MD5: "md5WithRSAEncryption",

@@ -300,6 +300,10 @@ class BrainpoolP512R1(EllipticCurve):
     key_size = 512
 
 
+class SM2(EllipticCurve):
+    name = "sm2"
+    key_size = 256
+
 _CURVE_TYPES: typing.Dict[str, typing.Type[EllipticCurve]] = {
     "prime192v1": SECP192R1,
     "prime256v1": SECP256R1,
@@ -322,6 +326,7 @@ _CURVE_TYPES: typing.Dict[str, typing.Type[EllipticCurve]] = {
     "brainpoolP256r1": BrainpoolP256R1,
     "brainpoolP384r1": BrainpoolP384R1,
     "brainpoolP512r1": BrainpoolP512R1,
+    "SM2": SM2,
 }
 
 
